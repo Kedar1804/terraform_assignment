@@ -27,7 +27,7 @@ resource "aws_iam_role" "github_actions" {
 
         Condition = {
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:YOUR_GITHUB_USERNAME/YOUR_REPO:*"
+            "token.actions.githubusercontent.com:sub" = "repo:Kedar1804/terraform_assignment:*"
           }
         }
       }
