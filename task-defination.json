@@ -1,0 +1,22 @@
+{
+  "family": "backend-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["EC2"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::886492071931:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "backend-app",
+      "image": "886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ]
+}
