@@ -109,7 +109,7 @@ resource "aws_ecs_task_definition" "app" {
   container_definitions = jsonencode([
     {
       name  = "backend-app"
-      image = "${var.ecr_repository_url}:latest"
+      image = "886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest"
 
       essential = true
 
