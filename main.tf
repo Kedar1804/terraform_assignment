@@ -23,6 +23,7 @@ module "ecs" {
   private_subnet_ids = module.vpc.private_subnet_ids
   ecs_sg_id          = module.security_groups.ecs_sg_id
   target_group_arn   = module.alb.target_group_arn
+  ecr_repository_url = module.ecr.repository_url
 }
 
 module "frontend" {
