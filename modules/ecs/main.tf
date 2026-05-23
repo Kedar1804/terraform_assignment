@@ -106,9 +106,12 @@ resource "aws_ecs_task_definition" "app" {
   cpu    = "256"
   memory = "512"
 
+  execution_role_arn = "arn:aws:iam::886492071931:role/ecsTaskExecutionRole"
+
   container_definitions = jsonencode([
     {
       name  = "backend-app"
+
       image = "886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest"
 
       essential = true
@@ -119,12 +122,6 @@ resource "aws_ecs_task_definition" "app" {
           hostPort      = 80
           protocol      = "tcp"
         }
-      ]
-
-      command = [
-        "sh",
-        "-c",
-        "echo '<h1>Backend Running</h1>' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
       ]
 
       logConfiguration = {
