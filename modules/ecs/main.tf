@@ -138,6 +138,7 @@ resource "aws_ecs_task_definition" "app" {
       name  = "backend-app"
 
       image = "886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest"
+      version_consistency = "enabled"
 
       essential = true
 
