@@ -289,7 +289,7 @@ SCREENSHOTS:
 5. TARGET GROUP
 
 
-   ![imagealt]()
+   ![imagealt](<img width="1918" height="797" alt="image" src="https://github.com/user-attachments/assets/cbc72642-7e5b-41d5-8732-d5afe24bbc0e" />)
 
 6.CI CD
 
