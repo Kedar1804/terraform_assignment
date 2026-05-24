@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Source Code
         uses: actions/checkout@v4
 
       - name: Configure AWS Credentials
@@ -37,31 +37,28 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t $ECR_REPOSITORY ./backend
-          docker tag $ECR_REPOSITORY:latest ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:latest
+          docker build -t backend-repo ./backend
 
-      - name: Push Docker Image
+      - name: Tag Docker Image
         run: |
-          docker push ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:latest
+          docker tag backend-repo:latest 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
 
-      - name: Download Task Definition
+      - name: Push Docker Image to ECR
         run: |
-          aws ecs describe-task-definition \
-            --task-definition backend-task \
-            --query taskDefinition > task-definition.json
+          docker push 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
 
-      - name: Fill New Image ID
-        id: task-def
+      - name: Render Amazon ECS Task Definition
+        id: render-task-definition
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
           container-name: backend-app
-          image: ${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:latest
+          image: 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
 
-      - name: Deploy ECS Task Definition
+      - name: Deploy Amazon ECS Task Definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          task-definition: ${{ steps.render-task-definition.outputs.task-definition }}
           service: backend-service
           cluster: ecs-cluster
           wait-for-service-stability: true
