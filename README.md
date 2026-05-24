@@ -285,7 +285,7 @@ SCREENSHOTS:
 4.ALB
 
 
-   ![imagealt]()
+   ![imagealt] (<img width="1919" height="915" alt="image" src="https://github.com/user-attachments/assets/1838d42c-80e2-485e-8d5d-383209b5fcae" />)
 
 5. TARGET GROUP
 
