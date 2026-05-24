@@ -274,7 +274,8 @@ SCREENSHOTS:
 
 2. VPC
 
-   ![imagealt]()
+   ![imagealt] (<img width="1919" height="920" alt="image" src="https://github.com/user-attachments/assets/1046aeaa-edcf-49d7-89b3-60740d559cf5" />
+)
 
 3.ECS SERVICE ACTIVE
 
