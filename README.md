@@ -304,7 +304,7 @@ SCREENSHOTS:
 8.BACKEND RESPONSE
 
 
-   ![imagealt]()
+   ![imagealt] (<img width="1684" height="1024" alt="image" src="https://github.com/user-attachments/assets/620148b9-7066-4943-9cd0-f0cab374219b" />)
 
 
 Author
