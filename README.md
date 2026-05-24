@@ -266,6 +266,13 @@ aws logs tail /ecs/demo-app --follow
 aws ecs update-service --cluster main-cluster --service demo-app-service --force-new-deployment
 ```
 
+SCREENSHOTS
+1.TERRAFORM APPLY
+
+![imagealt] (<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b10b894c-d0c3-45f7-8684-d762cdbc5587" />)
+
+
+
 Author
 Kedar Hippalge  
 GitHub: Kedar1804
