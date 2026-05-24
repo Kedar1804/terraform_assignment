@@ -10,8 +10,6 @@ env:
   ECR_REPOSITORY: backend-repo
   ECS_SERVICE: backend-service
   ECS_CLUSTER: ecs-cluster
-  ECS_TASK_DEFINITION: task-definition.json
-  CONTAINER_NAME: backend-app
 
 permissions:
   id-token: write
@@ -22,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source Code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Configure AWS Credentials
@@ -43,22 +41,13 @@ jobs:
         run: |
           docker tag backend-repo:latest 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
 
-      - name: Push Docker Image to ECR
+      - name: Push Docker Image
         run: |
           docker push 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
 
-      - name: Render Amazon ECS Task Definition
-        id: render-task-definition
-        uses: aws-actions/amazon-ecs-render-task-definition@v1
-        with:
-          task-definition: task-definition.json
-          container-name: backend-app
-          image: 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
-
-      - name: Deploy Amazon ECS Task Definition
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
-        with:
-          task-definition: ${{ steps.render-task-definition.outputs.task-definition }}
-          service: backend-service
-          cluster: ecs-cluster
-          wait-for-service-stability: true
+      - name: Force ECS Deployment
+        run: |
+          aws ecs update-service \
+            --cluster ecs-cluster \
+            --service backend-service \
+            --force-new-deployment
