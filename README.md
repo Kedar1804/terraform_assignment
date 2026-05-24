@@ -266,11 +266,44 @@ aws logs tail /ecs/demo-app --follow
 aws ecs update-service --cluster main-cluster --service demo-app-service --force-new-deployment
 ```
 
-SCREENSHOTS
+SCREENSHOTS:
+
 1.TERRAFORM APPLY
 
 ![imagealt] (<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b10b894c-d0c3-45f7-8684-d762cdbc5587" />)
 
+2. VPC
+
+   ![imagealt]()
+
+3.ECS SERVICE ACTIVE
+
+
+   ![imagealt]()
+
+4.ALB
+
+
+   ![imagealt]()
+
+5. TARGET GROUP
+
+
+   ![imagealt]()
+
+6.CI CD
+
+
+   ![imagealt]()
+
+7.CLOUDFRONT RESPONSE
+
+   ![imagealt]()
+
+8.BACKEND RESPONSE
+
+
+   ![imagealt]()
 
 
 Author
