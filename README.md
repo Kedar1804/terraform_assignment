@@ -295,7 +295,7 @@ SCREENSHOTS:
 6.CI CD
 
 
-   ![imagealt]()
+   ![imagealt] (<img width="1919" height="512" alt="image" src="https://github.com/user-attachments/assets/32640629-be3e-4523-b10c-bcaa4f22facd" />)
 
 7.CLOUDFRONT RESPONSE
 
