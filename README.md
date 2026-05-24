@@ -280,7 +280,7 @@ SCREENSHOTS:
 3.ECS SERVICE ACTIVE
 
 
-   ![imagealt]()
+   ![imagealt] (<img width="1902" height="926" alt="image" src="https://github.com/user-attachments/assets/0a939e18-0f3e-40bb-b104-16485c9fe6b4" />)
 
 4.ALB
 
