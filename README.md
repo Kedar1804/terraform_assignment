@@ -299,7 +299,7 @@ SCREENSHOTS:
 
 7.CLOUDFRONT RESPONSE
 
-   ![imagealt]()
+   ![imagealt] (<img width="1167" height="389" alt="image" src="https://github.com/user-attachments/assets/898d206d-2aaf-4c19-b15d-e41987b286c0" />)
 
 8.BACKEND RESPONSE
 
