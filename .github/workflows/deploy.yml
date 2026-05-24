@@ -32,18 +32,22 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+        
+      - name: Set Image Tag
+        run: echo "IMAGE_TAG=${GITHUB_SHA}" >> $GITHUB_ENV
 
       - name: Build Docker Image
         run: |
-          docker build -t backend-repo ./backend
+         docker build -t backend-repo:${IMAGE_TAG} ./backend
 
       - name: Tag Docker Image
         run: |
-          docker tag backend-repo:latest 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
+             docker tag backend-repo:${IMAGE_TAG} 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:${IMAGE_TAG}
+
 
       - name: Push Docker Image
         run: |
-          docker push 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:latest
+         docker push 886492071931.dkr.ecr.eu-north-1.amazonaws.com/backend-repo:${IMAGE_TAG}
 
       - name: Force ECS Deployment
         run: |
